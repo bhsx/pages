@@ -102,8 +102,8 @@
 
             <b-row>
                 <b-col>
-                    <div v-if="month_list!==null">上传时间: {{ file_info.time }}</div>
-                    <div v-for="(value) in message">{{ value }}</div>
+<!--                    <div v-if="month_list!==null">上传时间: {{ file_info.time }}</div>-->
+<!--                    <div v-for="(value) in message">{{ value }}</div>-->
                 </b-col>
             </b-row>
         </div>
@@ -126,7 +126,7 @@
             console.log('app created...');
             console.log(this.message);
             this.$axios
-                .get('/api/month_list/')
+                .get('./api/month_list/')
                 .then(response => {
                     this.month_list = [];
                     let month_list = response.data;
@@ -139,7 +139,7 @@
                         yeah_.add(dataKey.substr(0, 4));
                     }
                     for (let i of yeah_) {
-                        this.get_holidays(i, this.message);
+                        // this.get_holidays(i, this.message);
                     }
                 })
                 .catch(function (error) { // 请求失败处理

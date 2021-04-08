@@ -24,8 +24,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>中央车载</title>
     <!-- Add this to <head> -->
-    {#    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>#}
-    {#    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>#}
+<!--    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css"/>-->
+<!--    <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css"/>-->
 
 
 </head>
@@ -83,7 +83,6 @@
                             :items="info.data"
                             :tbody-tr-class="'text-nowrap'"
                     >
-                        {% verbatim %}
                         <template v-slot:thead-top="data">
                             <b-tr>
                                 <b-th class="table-b-table-default b-table-sticky-column">
@@ -97,18 +96,14 @@
                         <template v-slot:cell()="data">
                             <div class="">{{ data.value }}</div>
                         </template>
-                        {% endverbatim %}
                     </b-table>
                 </b-col>
             </b-row>
 
             <b-row>
                 <b-col>
-                    {% verbatim %}
                     <div v-if="month_list!==null">上传时间: {{ file_info.time }}</div>
                     <div v-for="(value) in message">{{ value }}</div>
-                    {% endverbatim %}
-                    {#                    <div v-if="month_list!==null">更新时间: {{ holidays }}</div>#}
                 </b-col>
             </b-row>
         </div>
@@ -143,7 +138,6 @@
                         this.month_list.push({value: dataKey, text: dataKey});
                         yeah_.add(dataKey.substr(0, 4));
                     }
-                    {#console.log(yeah_)#}
                     for (let i of yeah_) {
                         this.get_holidays(i, this.message);
                     }
